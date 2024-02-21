@@ -4,7 +4,7 @@ function App() {
   return (
     <>
     <Container>
-      <div>nimadi</div>
+      <div>nimadir</div>
     </Container>
     </>
   );
