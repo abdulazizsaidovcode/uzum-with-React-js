@@ -1,0 +1,1 @@
+export const Api = "localhost:some thing"

@@ -1,19 +1,15 @@
-import styled from "styled-components";
+import Home from "./components/pages/Home";
+
 
 function App() {
   return (
     <>
-    <Container>
-      <div>nimadir</div>
-    </Container>
+      <Home/>
     </>
   );
 }
 
-const Container = styled.i `
-  color: red;
-  text-align: center;
-`
+
 export default App;
 
 
