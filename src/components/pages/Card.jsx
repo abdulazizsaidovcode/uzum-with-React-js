@@ -71,6 +71,9 @@ function Product() {
                 type: 'loop',
                 perPage: 3,
                 focus: 'center',
+                width: "100%",
+                gap: '1rem',
+                arrowPath: 'm15.5 0.932-4.3 4.38...',
             }} aria-label="My Favorite Images" aria-labelledby="autoplay-example-heading">
                 {products && products.map((item, index) => (
                     <SplideSlide key={index} className="">
