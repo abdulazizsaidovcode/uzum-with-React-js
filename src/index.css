@@ -10,6 +10,12 @@
 }
 
 .container {
-    width: 95%;
     margin: 0 auto;
+    max-width: 1250px !important;
 }
+.splide--loop {
+    padding: 40px 0 !important;
+}
+/* .splide__slide { */
+    /* margin: 0!important; */
+/* } */

@@ -69,10 +69,13 @@ function Product() {
         <section className='product'>
             <Splide className="" options={{
                 type: 'loop',
-                perPage: 3,
+                perPage: 5,
                 focus: 'center',
                 width: "100%",
                 gap: '1rem',
+                autoplay: true,
+                pauseOnHover: false,
+                resetProgress: false,
                 arrowPath: 'm15.5 0.932-4.3 4.38...',
             }} aria-label="My Favorite Images" aria-labelledby="autoplay-example-heading">
                 {products && products.map((item, index) => (
