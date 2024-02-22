@@ -21,9 +21,7 @@ function Home() {
         <div>
             <Header />
             <Navbar />
-
             {/* splide slider */}
-
             <div className="container">
                 <Splide options={{
                     type: 'loop',
