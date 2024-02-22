@@ -14,6 +14,7 @@ import '@splidejs/react-splide/css/sea-green';
 import '@splidejs/react-splide/css/core';
 import Header from "../header";
 import Navbar from '../navbar';
+import Product from './Card';
 
 
 function Home() {
@@ -43,7 +44,12 @@ function Home() {
                         <img className=' rounded-3xl' src="https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg" alt="Image 2" />
                     </SplideSlide>
                 </Splide>
+
             </div>
+            <div className='container'>
+                <Product />
+            </div>
+
         </div >
     )
 }
