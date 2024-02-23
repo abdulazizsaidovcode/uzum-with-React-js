@@ -1,12 +1,6 @@
 import russianflag from "../assets/img/Header/russia-flag-icon.svg"
 
-const Category = [
-    { 
-        id: 1, 
-        categoryname: "Рассрочка", 
-        img: russianflag 
-    },
-]
+
 
 function Header() {
     return (
@@ -36,12 +30,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-            <div className="categorys flex items-center">
-                <div className="flex ">
-                    <img src="" alt="" />
-                    <p></p>
-                </div>
-            </div>
+            
         </header>
     )
 }

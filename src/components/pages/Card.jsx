@@ -1,10 +1,12 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useEffect, useState } from "react";
+import productimg from "../../assets/img//Product/product3.jpeg"
+
 
 const product = [
     {
         id: 1,
-        img: "https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg",
+        img: productimg,
         describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
         comments: 10,
         monthpay: 100,
@@ -15,7 +17,7 @@ const product = [
     },
     {
         id: 2,
-        img: "https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg",
+        img: productimg,
         describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
         comments: 10,
         monthpay: 100,
@@ -26,7 +28,7 @@ const product = [
     },
     {
         id: 3,
-        img: "https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg",
+        img: productimg,
         describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
         comments: 10,
         monthpay: 100,
@@ -37,7 +39,7 @@ const product = [
     },
     {
         id: 4,
-        img: "https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg",
+        img: productimg,
         describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
         comments: 10,
         monthpay: 100,
@@ -48,7 +50,7 @@ const product = [
     },
     {
         id: 5,
-        img: "https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg",
+        img: productimg,
         describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
         comments: 10,
         monthpay: 100,
@@ -66,38 +68,28 @@ function Product() {
     })
     console.log(products);
     return (
-        <section className='product'>
-            <Splide className="" options={{
-                type: 'loop',
-                perPage: 5,
-                focus: 'center',
-                width: "100%",
-                gap: '1rem',
-                autoplay: true,
-                pauseOnHover: false,
-                resetProgress: false,
-                arrowPath: 'm15.5 0.932-4.3 4.38...',
-            }} aria-label="My Favorite Images" aria-labelledby="autoplay-example-heading">
-                {products && products.map((item, index) => (
-                    <SplideSlide key={index} className="">
-                        <div>
-                            <div className='p '>
-                                <img className='w-full h-40 rounded-3xl' src={item.img} alt="Image 1" />
-                                <button>Акция</button>
-                            </div>
-                            <div className="product-description p-10">
-                                <p>{item.describtion}</p>
-                                <p>{item.rate}</p>
-                                <p>{item.comments}</p>
-                                <p>{item.monthpay}</p>
-                                <p>{item.price}</p>
-                                <p>{item.oldprice}</p>
-                            </div>
+        <section className='product grid grid-cols-5 gap-5'>
+            {products && products.map((item, index) => (
+                <div key={index} className="pb-10">
+                    <div className="w-full h-full hover:shadow-md  overflow-hidden rounded-md">
+                        <div className='w-full h-max relative overflow-hidden'>
+                            <img className='w-full h-84 bg-contain hover:scale-105 transition-all' src={item.img} alt="Image 1" />
+                            <button className="absolute bottom-0 left-0 bg-violet-700 text-white rounded-md px-3">Акция</button>
                         </div>
-                    </SplideSlide>
-                ))}
-            </Splide>
-        </section>
+                        <div className="product-description p-3">
+                            <p className="text-sm">{item.describtion}</p>
+                            <div className="flex ">
+                                <p><i class="ri-star-fill text-yellow-400 mr-1"></i>`{item.comments}`</p>
+                                <p>{item.rate}</p>
+                            </div>
+                            <p>{item.monthpay}</p>
+                            <p>{item.price}</p>
+                            <p>{item.oldprice}</p>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </section >
     )
 }
 
