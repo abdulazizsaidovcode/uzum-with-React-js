@@ -3,6 +3,7 @@ import logo from "../assets/Uzum logo.png";
 import NavbarButton from "./tools/btns/Navbar button";
 import NavbarInput from "./tools/inputs/navinput";
 import categoryimg from "../assets/img//Cayegory/union.png"
+import { Link } from "react-router-dom";
 
 
 const Categorys = [
@@ -84,10 +85,10 @@ function Navbar() {
                         <i class="ri-heart-line text-xl mr-2"></i>
                         <p>User name</p>
                     </div>
-                    <div className="flex">
+                    <Link to='/wishes' className="flex">
                         <i class="ri-shopping-basket-line text-xl mr-2"></i>
                         <p>User name</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className="container categorys flex items-center gap-x-4 w-max overflow-hidden" >
