@@ -1,74 +1,19 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { useEffect, useState } from "react";
-import productimg from "../../assets/img//Product/product3.jpeg"
+import product from "../json/product";
 
 
-const product = [
-    {
-        id: 1,
-        img: productimg,
-        describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-        comments: 10,
-        monthpay: 100,
-        rate: 5,
-        price: 1000,
-        oldprice: 1200,
 
-    },
-    {
-        id: 2,
-        img: productimg,
-        describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-        comments: 10,
-        monthpay: 100,
-        rate: 5,
-        price: 1000,
-        oldprice: 1200,
-
-    },
-    {
-        id: 3,
-        img: productimg,
-        describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-        comments: 10,
-        monthpay: 100,
-        rate: 5,
-        price: 1000,
-        oldprice: 1200,
-
-    },
-    {
-        id: 4,
-        img: productimg,
-        describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-        comments: 10,
-        monthpay: 100,
-        rate: 5,
-        price: 1000,
-        oldprice: 1200,
-
-    },
-    {
-        id: 5,
-        img: productimg,
-        describtion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-        comments: 10,
-        monthpay: 100,
-        rate: 5,
-        price: 1000,
-        oldprice: 1200,
-
-    },
-]
 
 function Product() {
     const [products, setProducts] = useState(product)
+    const [countproduct, setcountproduct] = useState(20)
+
     useEffect(() => {
         setProducts(product)
     })
-    console.log(products);
+
     return (
-        <section className='product grid grid-cols-5 gap-5'>
+        <section className='product grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 '>
             {products && products.map((item, index) => (
                 <div key={index} className="pb-10">
                     <div className="w-full h-full hover:shadow-md  overflow-hidden rounded-md">

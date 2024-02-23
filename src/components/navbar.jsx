@@ -41,13 +41,33 @@ const Categorys = [
         categoryname: "Рассрочка",
         img: categoryimg
     },
+    {
+        id: 9,
+        categoryname: "Рассрочка",
+        img: categoryimg
+    },
+    {
+        id: 10,
+        categoryname: "Рассрочка",
+        img: categoryimg
+    },
+    {
+        id: 11,
+        categoryname: "Рассрочка",
+        img: categoryimg
+    },
+    {
+        id: 12,
+        categoryname: "Рассрочка",
+        img: categoryimg
+    },
 ]
 function Navbar() {
     const [category, setCategory] = useState(Categorys)
 
     return (
-        <nav className="w-full h-max py-3">
-            <div className="container flex items-center">
+        <nav className="w-full h-max py-3 overflow-hidden">
+            <div className="container flex items-center ">
                 <img className="h-10" src={logo} alt="" />
                 <div className="flex items-center ml-6">
                     <NavbarButton />
@@ -70,7 +90,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className="container categorys flex items-center gap-x-4" >
+            <div className="container categorys flex items-center gap-x-4 w-max overflow-hidden" >
                 {category && category.map((item, index) => (
                     <div className="flex w-36 h-12 items-center py-2" key={index}>
                         <img src={item.img} alt="" className="w-6 h-6"/>
