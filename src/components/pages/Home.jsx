@@ -9,19 +9,15 @@ import '@splidejs/react-splide/css';
 import '@splidejs/react-splide/css/skyblue';
 import '@splidejs/react-splide/css/sea-green';
 
-
 // or only core styles
 import '@splidejs/react-splide/css/core';
-import Header from "../header";
-import Navbar from '../navbar';
 import Product from './Card';
 
 
 function Home() {
     return (
         <div>
-            <Header />
-            <Navbar />
+            
             {/* splide slider */}
             <div className="container">
                 <Splide options={{

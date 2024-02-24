@@ -81,20 +81,21 @@ function Navbar() {
                         <i class="ri-user-line text-xl mr-2"></i>
                         <p>User name</p>
                     </div>
-                    <div className="flex">
-                        <i class="ri-heart-line text-xl mr-2"></i>
-                        <p>User name</p>
-                    </div>
                     <Link to='/wishes' className="flex">
-                        <i class="ri-shopping-basket-line text-xl mr-2"></i>
-                        <p>User name</p>
+                        <i class="ri-heart-line mr-2"></i>
+                        <p> Мои заказы </p>
                     </Link>
+                    <Link to="/cart" className="flex">
+                        <i class="ri-shopping-basket-line text-xl mr-2"></i>
+                        <p> Корзина </p>
+                    </Link>
+
                 </div>
             </div>
             <div className="container categorys flex items-center gap-x-4 w-max overflow-hidden" >
                 {category && category.map((item, index) => (
                     <div className="flex w-36 h-12 items-center py-2" key={index}>
-                        <img src={item.img} alt="" className="w-6 h-6"/>
+                        <img src={item.img} alt="" className="w-6 h-6" />
                         <p className="ml-1">{item.categoryname}</p>
                     </div>
                 ))}

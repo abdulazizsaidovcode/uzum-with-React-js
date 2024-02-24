@@ -1,6 +1,8 @@
 function Wishes() {
     return(
-        <>wishes</>
+        <div>
+            salom
+        </div>
     )
 }
 export default Wishes
