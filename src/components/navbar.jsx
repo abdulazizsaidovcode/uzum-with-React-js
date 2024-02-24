@@ -69,7 +69,9 @@ function Navbar() {
     return (
         <nav className="w-full h-max py-3 overflow-hidden">
             <div className="container flex items-center ">
-                <img className="h-10" src={logo} alt="" />
+                <Link to="/">
+                    <img className="h-10" src={logo} alt="" />
+                </Link>
                 <div className="flex items-center ml-6">
                     <NavbarButton />
                 </div>

@@ -1,5 +1,3 @@
-// import Footer from "../footer";
-// import Navbar from "../navbar";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 // Default theme
 import '@splidejs/react-splide/css';
@@ -11,13 +9,32 @@ import '@splidejs/react-splide/css/sea-green';
 
 // or only core styles
 import '@splidejs/react-splide/css/core';
-import Product from './Card';
+import ProductCard from '../tools/cards';
+import { useEffect, useState } from 'react';
+import product from '../json/product';
 
 
 function Home() {
+
+    const [products, setProducts] = useState(null)
+    const [countproduct, setcountproduct] = useState(10)
+    const [morebutton, sermoreinfo] = useState("show More")
+
+    useEffect(() => {
+        setProducts(product.splice(0, countproduct))
+    }, [])
+
+    function showMoreProduct() {
+        if (countproduct == 10) {
+            setProducts(product.splice(0, countproduct + 5))
+            console.log(countproduct + 5);
+            sermoreinfo("barcahsini korish")
+        }
+    }
+
     return (
         <div>
-            
+
             {/* splide slider */}
             <div className="container">
                 <Splide options={{
@@ -43,8 +60,18 @@ function Home() {
 
             </div>
             <div className='container'>
-                <Product />
+                <div className='product w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 '>
+                    {products && products.map((item, index) => (
+
+                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} />
+                    ))}
+
+                </div >
             </div>
+            <div className=" w-full flex justify-center py-10">
+                <button className="bg-gray-200 py-5 md:px-72 md:w-auto w-full rounded-md" onClick={showMoreProduct}>{morebutton}</button>
+            </div>
+
 
         </div >
     )
