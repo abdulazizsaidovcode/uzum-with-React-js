@@ -43,21 +43,21 @@ function Cart() {
                                 </div>
                             </div>
                         )}
-                        {product && product.map((item, index) => (
-                            <div className="mb-2">
+                        {basket && basket.map((item, index) => (
+                            <div className="mb-2" key={index}>
                                 <div className="border w-full my-5"></div>
                                 <div className="flex items-center w-full h-28 justify-between">
                                     <input type="checkbox" className="w-10" />
                                     <div className="w-full flex items-center justify-between">
-                                        <img src="" alt="rasm" />
-                                        <div>
-                                            <p>Швейная машина Janome HomeDecor 2077</p>
+                                        <img className="w-20 h-28 mr-3" src={item.img} alt="rasm" />
+                                        <div className="w-72">
+                                            <p>{item.name}Швейная машина Janome HomeDecor 2077</p>
                                             <div className="flex">
                                                 <p className="text-gray-500 mr-3">Продавец:</p>
-                                                <p> Elfort Asia</p>
+                                                <p> {item.advice}</p>
                                             </div>
                                         </div>
-                                        <div className="h-12 w-36 border p-2 rounded-md flex justify-between ml-4 items-center">
+                                        <div className="h-12 w-36 border mr-3 p-2 rounded-md flex justify-between ml-4 items-center">
                                             <button className="text-gray-400 text-3xl">-</button>
                                             <p>0</p>
                                             <button className="text-gray-400 text-3xl">+</button>
@@ -67,8 +67,8 @@ function Cart() {
                                                 <i class="ri-delete-bin-6-line"></i>
                                                 <p className="ml-2">Удалить</p>
                                             </div>
-                                            <p className="text-3xl">1 890 000 сум</p>
-                                            <del className="text-gray-400">2 850 000 сум</del>
+                                            <p className="text-2xl text-end">{item.price} сум</p>
+                                            <del className="text-gray-400">{item.oldprice} сум</del>
                                         </div>
                                     </div>
                                 </div>
