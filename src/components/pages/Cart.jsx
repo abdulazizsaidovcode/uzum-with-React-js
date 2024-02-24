@@ -1,44 +1,93 @@
 import { useEffect, useState } from "react"
 import product from "../json/product"
+import DeliveryButton from "../tools/btns/delivery"
 
 function Cart() {
     const [products, getGroduct] = useState(null)
     const [similarproduct, getsimilarProduct] = useState(null)
-    
+    const [basket, getBasket] = useState(null)
+
     useEffect(() => {
-        getGroduct(product.splice(0, 5))
+        getGroducts()
+        getBasketProduct()
     }, [])
+
+    function getGroducts() {
+        getGroduct(product.splice(0, 5))
+    }
+    function getBasketProduct() {
+        getBasket(product.splice(0, 2))
+    }
 
 
     return (
         <section className="container ">
 
-            {/* trade structure */}
-
+            {/* Your cart */}
             <div className="w-full py-5">
-                <h1 className="py-10">Ваша корзина,</h1>
+                <h1 className="py-10 text-2xl">Ваша корзина,</h1>
                 <div className="grid grid-cols-7 gap-2 h-max">
-                    <div className="border p-3 col-span-5 rounded-lg h-max">
-                        <div className="flex justify-between">
-                            <div className="flex">
-                                <input className="mr-3" type="checkbox" />
-                                <p>snyat vse</p>
+
+                    {/* left part in cart */}
+                    <div className="border p-5 col-span-5 rounded-lg h-max">
+
+                        {product && (
+                            <div className="flex justify-between">
+                                <div className="flex items-center">
+                                    <input className="mr-3 w-4" type="checkbox" />
+                                    <p>snyat vse</p>
+                                </div>
+                                <div className="flex items-center">
+                                    <p className="mr-2">Ближайшая дата доставки:</p>
+                                    <DeliveryButton text={"25 февраля (Завтра)"} />
+                                </div>
                             </div>
-                            <div className="flex">
-                                <p>Ближайшая дата доставки:</p>
-                                <span>25 февраля (Завтра)</span>
+                        )}
+                        {product && product.map((item, index) => (
+                            <div className="mb-2">
+                                <div className="border w-full my-5"></div>
+                                <div className="flex items-center w-full h-28 justify-between">
+                                    <input type="checkbox" className="w-10" />
+                                    <div className="w-full flex items-center justify-between">
+                                        <img src="" alt="rasm" />
+                                        <div>
+                                            <p>Швейная машина Janome HomeDecor 2077</p>
+                                            <div className="flex">
+                                                <p className="text-gray-500 mr-3">Продавец:</p>
+                                                <p> Elfort Asia</p>
+                                            </div>
+                                        </div>
+                                        <div className="h-12 w-36 border p-2 rounded-md flex justify-between ml-4 items-center">
+                                            <button className="text-gray-400 text-3xl">-</button>
+                                            <p>0</p>
+                                            <button className="text-gray-400 text-3xl">+</button>
+                                        </div>
+                                        <div className="w-max flex flex-col items-end">
+                                            <div className="flex text-gray-500 text-md">
+                                                <i class="ri-delete-bin-6-line"></i>
+                                                <p className="ml-2">Удалить</p>
+                                            </div>
+                                            <p className="text-3xl">1 890 000 сум</p>
+                                            <del className="text-gray-400">2 850 000 сум</del>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div></div>
+                        ))}
+
+
+
                     </div>
+
+                    {/* right part in cart */}
                     <div className="col-span-2  h-max">
                         <div className="border p-3 rounded-lg">
                             <p>Ваш заказ</p>
-                            <div className="flex w-full justify-between mt-2" >
+                            <div className="flex w-full justify-between mt-2 mb-2" >
                                 <p>Товары (0):</p>
                                 <p> 0 сум</p>
                             </div>
-                            <div className="mt-2 border text-center text-sm border-purple-700 text-purple-700">Доставка 25 февраля (Завтра)</div>
+                            <DeliveryButton text={"Доставка 25 февраля (Завтра)"} />
                             <div className="w-full flex justify-between mt-2">
                                 <p>Итого:</p>
                                 <p> 0 сум</p>
@@ -75,8 +124,8 @@ function Cart() {
             </div>
 
             {/* similar product */}
-            <div className="">
-                <h1>С этими товарами покупают</h1>
+            <div className="py-10">
+                <h1 className="text-2xl mb-5">С этими товарами покупают</h1>
                 <div className="w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 ">
                     {products && products.map((item, index) => (
                         <div key={index} className="pb-10">
@@ -100,12 +149,31 @@ function Cart() {
                     ))}
                 </div>
 
-            {/*  seen products */}
+                {/*  seen products */}
             </div>
-            <div>
-                <h1>Просмотренные товары</h1>
-                <div>
-
+            <div className="py-10">
+                <h1 className="text-2xl mb-5">Просмотренные товары</h1>
+                <div className="w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 ">
+                    {products && products.map((item, index) => (
+                        <div key={index} className="pb-10">
+                            <div className="w-full h-full hover:shadow-md  overflow-hidden rounded-md">
+                                <div className='w-full h-max relative overflow-hidden'>
+                                    <img className='w-full h-84 bg-contain hover:scale-105 transition-all' src={item.img} alt="Image 1" />
+                                    <button className="absolute bottom-0 left-0 bg-violet-700 text-white rounded-md px-3">Акция</button>
+                                </div>
+                                <div className="product-description p-3">
+                                    <p className="text-sm">{item.describtion}</p>
+                                    <div className="flex ">
+                                        <p><i class="ri-star-fill text-yellow-400 mr-1"></i>`{item.comments}`</p>
+                                        <p>{item.rate}</p>
+                                    </div>
+                                    <p>{item.monthpay}</p>
+                                    <p>{item.price}</p>
+                                    <p>{item.oldprice}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>
