@@ -4,7 +4,7 @@ import product from "../json/product";
 
 
 
-function Product() {
+function Product(count = 10, img, describtion, comments, rate, monthpay, price, oldprice) {
     const [products, setProducts] = useState(null)
     const [countproduct, setcountproduct] = useState(10)
     const [morebutton, sermoreinfo] = useState("show More")
@@ -14,7 +14,7 @@ function Product() {
     }, [])
     
     function showMoreProduct() {
-        if (countproduct == 10) {
+        if (countproduct == count) {
             setcountproduct(20)
             setProducts(product.splice(0, countproduct))
             console.log(countproduct = 20);

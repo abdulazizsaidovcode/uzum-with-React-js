@@ -16,7 +16,8 @@ function Cart() {
         getGroduct(product.splice(0, 5))
     }
     function getBasketProduct() {
-        getBasket(product.splice(0, 2))
+        getBasket(product.splice(0, 3))
+        console.log(basket);
     }
 
 
@@ -31,7 +32,7 @@ function Cart() {
                     {/* left part in cart */}
                     <div className="border p-5 col-span-5 rounded-lg h-max">
 
-                        {product && (
+                        {basket && (
                             <div className="flex justify-between">
                                 <div className="flex items-center">
                                     <input className="mr-3 w-4" type="checkbox" />
@@ -42,7 +43,7 @@ function Cart() {
                                     <DeliveryButton text={"25 февраля (Завтра)"} />
                                 </div>
                             </div>
-                        )}
+                        ) }
                         {basket && basket.map((item, index) => (
                             <div className="mb-2" key={index}>
                                 <div className="border w-full my-5"></div>
