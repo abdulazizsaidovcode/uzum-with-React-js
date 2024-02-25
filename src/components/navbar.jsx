@@ -65,6 +65,7 @@ const Categorys = [
 ]
 function Navbar() {
     const [category, setCategory] = useState(Categorys)
+    
 
     return (
         <nav className="w-full h-max py-3 overflow-hidden">
@@ -73,7 +74,7 @@ function Navbar() {
                     <img className="h-10" src={logo} alt="" />
                 </Link>
                 <div className="flex items-center ml-6">
-                    <NavbarButton />
+                    <NavbarButton onClick={openNavList}/>
                 </div>
                 <div className="flex items-center ml-5 w-[40%]">
                     <NavbarInput />
