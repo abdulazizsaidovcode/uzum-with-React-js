@@ -74,7 +74,7 @@ function Navbar() {
                     <img className="h-10" src={logo} alt="" />
                 </Link>
                 <div className="flex items-center ml-6">
-                    <NavbarButton onClick={openNavList}/>
+                    <NavbarButton />
                 </div>
                 <div className="flex items-center ml-5 w-[40%]">
                     <NavbarInput />
