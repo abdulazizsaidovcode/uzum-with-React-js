@@ -1,10 +1,11 @@
 import DefaultBtn from "../btns/default";
 
-function Empty(){
+function Empty({img, tite, description, btnText}){
     return(
         <div className="w-full h-96 flex justify-center items-center flex-col">
-            <p>Добавьте то, что понравилось</p>
-            <DefaultBtn name={"nimadur"}/>
+            <img src={img} alt="rasm" className="w-40"/>
+            <p>{tite}</p>
+            <DefaultBtn name={btnText}/>
         </div>
     )
 }

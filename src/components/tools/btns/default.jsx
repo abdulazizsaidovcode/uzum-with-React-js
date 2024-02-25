@@ -1,6 +1,6 @@
 export default function DefaultBtn({name}) {
     return(
-        <button className="w-36 py-4 bg-purple-700 text-white rounded-lg">
+        <button className="px-8 py-3 bg-purple-700 text-white rounded-lg">
             {name}
         </button>
     )
