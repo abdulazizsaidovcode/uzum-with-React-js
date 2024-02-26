@@ -48,13 +48,13 @@ function Footer() {
                         <h2 class="mb-6 text-sm font-semibold  uppercase ">Скачать приложение</h2>
                         <ul class="font-medium">
                             <li class="mb-10 divide-fuchsia-50 flex w-full text-sm">
-                                <div className="flex items-center mr-5">
+                                <div className="flex items-center mr-10">
                                     <img src={mac} alt="" className="w-5" />
-                                    <a href="#" class="hover:underline">Apple</a>
+                                    <a href="#" class="hover:underline mr-4">Apple</a>
                                 </div>
                                 <div className="flex items-center">
                                     <img src={android} alt="" className="w-5" />
-                                    <a href="#" class="hover:underline">Android</a>
+                                    <a href="#" class="hover:underline  mr-4">Android</a>
                                 </div>
                             </li>
                             <li>
