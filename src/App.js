@@ -4,6 +4,7 @@ import Wishes from "./components/pages/Wishes";
 import Cart from "./components/pages/Cart";
 import Header from "./components/header";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Route path="/wishes" element={<Wishes />} />
         <Route path="cart" element={<Cart />} />
       </Routes>
-      <></>
+      <Footer />
     </>
   );
 }

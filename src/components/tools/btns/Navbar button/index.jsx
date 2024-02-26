@@ -1,5 +1,5 @@
 import { useState } from "react"
-import buttonimg from "../../../../assets/btnimg.png"
+import buttonimg from "../../../../assets/icons/btnimg.png"
 
 function NavbarButton() {
     const button = {
