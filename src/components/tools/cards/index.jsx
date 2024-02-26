@@ -3,7 +3,7 @@
 
 
 
-function ProductCard({img, describtion, comments, rate, monthpay, price, oldprice}) {
+function ProductCard({ img, describtion, comments, rate, monthpay, price, oldprice }) {
 
     return (
         <div className="pb-10">
@@ -18,9 +18,16 @@ function ProductCard({img, describtion, comments, rate, monthpay, price, oldpric
                         <p><i class="ri-star-fill text-yellow-400 mr-1"></i>`{comments}`</p>
                         <p>{rate}</p>
                     </div>
-                    <p>{monthpay}</p>
-                    <p>{price}</p>
-                    <p>{oldprice}</p>
+                    <div className="bg-yellow-200 w-max px-2 text-xs mt-1 rounded-md">
+                        <p>{monthpay} сум/мес</p>
+                    </div>
+                    <div>
+                        <div>
+                            <p>{price}</p>
+                            <p>{oldprice}</p>
+                        </div>
+                        <button></button>
+                    </div>
                 </div>
             </div>
         </div>
