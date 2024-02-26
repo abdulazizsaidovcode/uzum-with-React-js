@@ -7,7 +7,7 @@ function Cart() {
     const [products, getGroduct] = useState(null)
     const [similarproduct, getsimilarProduct] = useState(null)
     const [basket, getBasket] = useState(null)
-
+    console.log(products);
     useEffect(() => {
         getGroducts()
         getBasketProduct()
@@ -130,7 +130,7 @@ function Cart() {
                 <h1 className="text-2xl mb-5">С этими товарами покупают</h1>
                 <div className="w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 ">
                     {products && products.map((item) => (
-                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} />
+                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} discount={item.discount} sale={item.sale} />
                     ))}
                 </div>
             </div>
