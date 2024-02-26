@@ -71,8 +71,10 @@ function Footer() {
                     </div>
                 </div>
                 <div class="px-4 py-6  md:flex md:items-center md:justify-between">
-                    <span class="text-sm sm:text-center">© 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights Reserved.
+                    <span class="text-sm sm:text-center">Соглашение о конфиденциальности
+                        Пользовательское соглашение
                     </span>
+                    <p className="text-gray-600 text-sm">2024© ООО «UZUM MARKET». ИНН 309376127. Все права защищены»</p>
                 </div>
             </div>
         </footer>
