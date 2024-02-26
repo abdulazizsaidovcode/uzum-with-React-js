@@ -12,7 +12,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 2,
@@ -25,7 +25,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 3,
@@ -38,7 +38,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 4,
@@ -51,7 +51,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 5,
@@ -64,7 +64,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 6,
@@ -77,7 +77,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 7,
@@ -90,7 +90,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 8,
@@ -103,7 +103,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 9,
@@ -116,7 +116,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 10,
@@ -129,7 +129,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 11,
@@ -142,7 +142,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 12,
@@ -155,7 +155,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 13,
@@ -167,7 +167,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 14,
@@ -180,7 +180,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 15,
@@ -193,7 +193,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 16,
@@ -206,7 +206,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 17,
@@ -219,7 +219,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 18,
@@ -232,7 +232,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 19,
@@ -245,7 +245,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
     {
         id: 20,
@@ -258,7 +258,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: false,
     },
     {
         id: 21,
@@ -271,7 +271,7 @@ const product = [
         rate: 5,
         price: 1000,
         oldprice: 1200,
-
+        discount: true,
     },
 ]
 
