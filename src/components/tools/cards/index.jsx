@@ -4,7 +4,7 @@ import heart from "../../../assets/icons/heart.png"
 
 
 
-function ProductCard({ img, describtion, comments, rate, monthpay, price, oldprice }) {
+function ProductCard({ img, describtion, comments, rate, monthpay, price, oldprice, disCount }) {
 
     return (
         <div className="mb-10 cursor-pointer">

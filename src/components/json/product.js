@@ -13,6 +13,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: false,
     },
     {
         id: 2,
@@ -26,6 +27,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: true,
     },
     {
         id: 3,
@@ -39,6 +41,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: true,
     },
     {
         id: 4,
@@ -52,6 +55,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: false,
     },
     {
         id: 5,
@@ -65,6 +69,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: true,
     },
     {
         id: 6,
@@ -78,6 +83,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 7,
@@ -91,6 +97,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 8,
@@ -104,6 +111,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: true,
     },
     {
         id: 9,
@@ -117,6 +125,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 10,
@@ -130,6 +139,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: true,
     },
     {
         id: 11,
@@ -143,6 +153,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 12,
@@ -156,6 +167,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: true,
     },
     {
         id: 13,
@@ -168,6 +180,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 14,
@@ -181,6 +194,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: true,
     },
     {
         id: 15,
@@ -194,6 +208,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 16,
@@ -207,6 +222,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: true,
     },
     {
         id: 17,
@@ -220,6 +236,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: false,
     },
     {
         id: 18,
@@ -233,6 +250,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: false,
     },
     {
         id: 19,
@@ -246,6 +264,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: false,
     },
     {
         id: 20,
@@ -259,6 +278,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: false,
+        sale: true,
     },
     {
         id: 21,
@@ -272,6 +292,7 @@ const product = [
         price: 1000,
         oldprice: 1200,
         discount: true,
+        sale: false,
     },
 ]
 
