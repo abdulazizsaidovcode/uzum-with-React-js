@@ -18,7 +18,7 @@ function Home() {
 
     const [products, setProducts] = useState(null)
     const [countproduct, setcountproduct] = useState(10)
-    const [morebutton, sermoreinfo] = useState("show More")
+    const [morebutton, sermoreinfo] = useState("Показать ещё 20")
 
     useEffect(() => {
         setProducts(product.splice(0, countproduct))
@@ -68,8 +68,8 @@ function Home() {
 
                 </div >
             </div>
-            <div className=" w-full flex justify-center py-10">
-                <button className="bg-gray-200 py-5 md:px-72 md:w-auto w-full rounded-md" onClick={showMoreProduct}>{morebutton}</button>
+            <div className=" w-full flex justify-center py-8">
+                <button className="bg-gray-100 py-4 md:px-80 md:w-auto w-full rounded-md" onClick={showMoreProduct}>{morebutton}</button>
             </div>
 
 

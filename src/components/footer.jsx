@@ -49,11 +49,11 @@ function Footer() {
                         <ul class="font-medium">
                             <li class="mb-10 divide-fuchsia-50 flex w-full text-sm">
                                 <div className="flex items-center mr-10">
-                                    <img src={mac} alt="" className="w-5" />
+                                    <img src={mac} alt="" className="w-6" />
                                     <a href="#" class="hover:underline mr-4">Apple</a>
                                 </div>
                                 <div className="flex items-center">
-                                    <img src={android} alt="" className="w-5" />
+                                    <img src={android} alt="" className="w-6" />
                                     <a href="#" class="hover:underline  mr-4">Android</a>
                                 </div>
                             </li>
