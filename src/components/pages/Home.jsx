@@ -61,9 +61,8 @@ function Home() {
             </div>
             <div className='container'>
                 <div className='product w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 '>
-                    {products && products.map((item, index) => (
-
-                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} />
+                    {products && products.map((item) => (
+                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} discount={item.discount} sale={item.sale} />
                     ))}
 
                 </div >

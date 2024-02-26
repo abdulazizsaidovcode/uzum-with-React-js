@@ -7,7 +7,6 @@ function Cart() {
     const [products, getGroduct] = useState(null)
     const [similarproduct, getsimilarProduct] = useState(null)
     const [basket, getBasket] = useState(null)
-    console.log(products);
     useEffect(() => {
         getGroducts()
         getBasketProduct()

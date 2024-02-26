@@ -11,12 +11,12 @@ function ProductCard({ img, describtion, comments, rate, monthpay, price, oldpri
             <div className="w-full h-full hover:shadow-md overflow-hidden rounded-md">
                 <div className='w-full h-80 relative overflow-hidden'>
                     <img className='w-full h-full bg-contain hover:scale-105 transition-all' src={img} alt="Image 1" />
-                    { discount ?
+                    {discount ?
                         <button className="absolute bottom-0 left-0 bg-violet-700 text-white rounded-md px-3">Акция</button>
-                    : "salom"}
-                    { sale ?
-                        <button className="absolute bottom-0 left-0 bg-violet-700 text-white rounded-md px-3">Акция</button>
-                    : "salom"}
+                        : "salom"}
+                    {sale ?
+                        <button className={`${discount ? 'left-20' : "left-0"} absolute bottom-0  bg-pink-500 text-white rounded-md px-3`}>Распродажа</button>
+                        : "salom"}
                     <button className=" absolute w-8 h-8 top-2 right-2 text-xl"><img src={heart} class="ri-heart-line" /></button>
                 </div>
                 <div className="product-description p-3">
