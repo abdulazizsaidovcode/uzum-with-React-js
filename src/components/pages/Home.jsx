@@ -30,6 +30,8 @@ function Home() {
         axios.get(Api + "product")
             .then((res) => {
                 setProducts(res.data.splice(0, countproduct))
+            }).catch((err) => {
+                console.error(err)
             })
     }
     function showMoreProduct() {

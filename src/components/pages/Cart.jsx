@@ -17,7 +17,6 @@ function Cart() {
     }
     function getBasketProduct() {
         getBasket(product.splice(0, 3))
-        console.log(basket);
     }
 
 

@@ -3,6 +3,8 @@ import product from "../json/product"
 import Empty from "../tools/empty"
 import EmptyImg from "../../assets/empty/not found.png"
 import { useEffect, useState } from "react"
+import axios from "axios"
+import { Api } from "../../api/api"
 
 
 function Wishes() {
@@ -16,7 +18,13 @@ function Wishes() {
     }, [])
 
     function getProducts() {
-        getProduct(product.splice(0, 5))
+       
+        axios.get(Api + "product")
+            .then((res) => {
+                getProduct(res.data.splice(0, 5))
+            }).catch((err) => {
+                console.error(err)
+            })
     }
     function getProductLengths() {
         if (product < 1) {
