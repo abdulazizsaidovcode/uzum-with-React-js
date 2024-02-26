@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import product from "../json/product"
 import DeliveryButton from "../tools/btns/delivery"
 import ProductCard from "../tools/cards"
+import { Api } from "../../api/api"
+import axios from "axios"
 
 function Cart() {
     const [products, getGroduct] = useState(null)
@@ -9,17 +10,17 @@ function Cart() {
     const [basket, getBasket] = useState(null)
     useEffect(() => {
         getGroducts()
-        getBasketProduct()
     }, [])
 
     function getGroducts() {
-        getGroduct(product.splice(0, 5))
+        axios.get(Api + "product")
+            .then((res) => {
+                getGroduct(res.data.splice(0, 5))
+                getBasket(res.data.splice(0, 5))
+            }).catch((err) => {
+                console.error(err)
+            })
     }
-    function getBasketProduct() {
-        getBasket(product.splice(0, 3))
-    }
-
-
     return (
         <section className="container ">
 

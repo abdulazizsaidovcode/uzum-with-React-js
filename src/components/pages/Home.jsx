@@ -10,7 +10,6 @@ import '@splidejs/react-splide/css/sea-green';
 import '@splidejs/react-splide/css/core';
 import ProductCard from '../tools/cards';
 import { useEffect, useState } from 'react';
-import product from '../json/product';
 import { Api } from '../../api/api';
 import axios from 'axios';
 
@@ -35,11 +34,7 @@ function Home() {
             })
     }
     function showMoreProduct() {
-        if (countproduct == 10) {
-            setProducts(product.splice(0, countproduct + 5))
-            console.log(countproduct + 5);
-            sermoreinfo("barcahsini korish")
-        }
+        
     }
 
     return (
