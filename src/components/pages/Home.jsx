@@ -2,7 +2,6 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 // Default theme
 import '@splidejs/react-splide/css';
 
-
 // or other themes
 import '@splidejs/react-splide/css/skyblue';
 import '@splidejs/react-splide/css/sea-green';
@@ -12,6 +11,8 @@ import '@splidejs/react-splide/css/core';
 import ProductCard from '../tools/cards';
 import { useEffect, useState } from 'react';
 import product from '../json/product';
+import { Api } from '../../api/api';
+import axios from 'axios';
 
 
 function Home() {
@@ -21,9 +22,16 @@ function Home() {
     const [morebutton, sermoreinfo] = useState("Показать ещё 20")
 
     useEffect(() => {
-        setProducts(product.splice(0, countproduct))
+        
+        getProduct()
     }, [])
 
+    function getProduct() {
+        axios.get(Api + "product")
+            .then((res) => {
+                setProducts(res.data.splice(0, countproduct))
+            })
+    }
     function showMoreProduct() {
         if (countproduct == 10) {
             setProducts(product.splice(0, countproduct + 5))

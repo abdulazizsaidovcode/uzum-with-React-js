@@ -1,1 +1,1 @@
-export const Api = "localhost:some thing"
+export const Api = "http://localhost:3000/"
