@@ -16,3 +16,15 @@
 .splide--loop {
     padding: 0 0 80px 0  !important;
 }
+.splide-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .thumbnails-splide {
+    flex: 1;
+  }
+  
+  .main-splide {
+    flex: 3;
+  }
