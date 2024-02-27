@@ -16,6 +16,16 @@
 .splide--loop {
     padding: 0 0 80px 0  !important;
 }
+.splide--draggable {
+    padding: 0 !important;
+}
+/* .splide__slide {
+    height: 100%;
+}
+.splide__slide img {
+    height: 100%;
+} */
+
 .splide-wrapper {
     display: flex;
     flex-direction: row;
