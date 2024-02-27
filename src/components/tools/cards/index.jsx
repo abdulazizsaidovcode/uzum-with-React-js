@@ -1,13 +1,14 @@
 
 import uzumbasket from "../../../assets/icons/uzum-basket.png"
 import heart from "../../../assets/icons/heart.png"
+import { Link } from "react-router-dom";
 
 
 
 function ProductCard({ img, describtion, comments, rate, monthpay, price, oldprice, discount, sale }) {
 
     return (
-        <div className="mb-10 cursor-pointer">
+        <Link to="/product" className="mb-10 cursor-pointer">
             <div className="w-full h-full hover:shadow-md overflow-hidden rounded-md">
                 <div className='w-full h-80 relative overflow-hidden'>
                     <img className='w-full h-full bg-contain hover:scale-105 transition-all' src={img} alt="Image 1" />
@@ -37,7 +38,7 @@ function ProductCard({ img, describtion, comments, rate, monthpay, price, oldpri
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

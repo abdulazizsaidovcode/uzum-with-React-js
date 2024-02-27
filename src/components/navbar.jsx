@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../assets/Uzum logo.png";
+import logo from "../assets/img/Uzum logo.png";
 import NavbarButton from "./tools/btns/Navbar button";
 import NavbarInput from "./tools/inputs/navinput";
 import categoryimg from "../assets/img//Cayegory/union.png"
