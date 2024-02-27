@@ -3,7 +3,7 @@ function Loadingslide() {
 
     }
     return (
-        <div className='loading w-full bg-purple-100 h-96 rounded-3xl mb-5'></div>
+        <div className='loading w-full bg-blue-100 h-96 rounded-3xl mb-5'></div>
     )
 }
 export default Loadingslide
