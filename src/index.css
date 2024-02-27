@@ -13,28 +13,27 @@
     margin: 0 auto;
     max-width: 1250px !important;
 }
+
 .splide--loop {
-    padding: 0 0 80px 0  !important;
+    padding: 0 0 80px 0 !important;
 }
+
 .splide--draggable {
     padding: 0 !important;
 }
-/* .splide__slide {
-    height: 100%;
-}
-.splide__slide img {
-    height: 100%;
-} */
 
 .splide-wrapper {
     display: flex;
     flex-direction: row;
-  }
-  
-  .thumbnails-splide {
+}
+
+.thumbnails-splide {
     flex: 1;
-  }
-  
-  .main-splide {
+}
+
+.main-splide {
     flex: 3;
-  }
+}
+.dot {
+    font-size: 7px;
+}

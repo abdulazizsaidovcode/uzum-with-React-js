@@ -35,6 +35,7 @@ const Product = () => {
 
     return (
         <main className='container'>
+            {/* product description top part */}
             <div className='grid grid-cols-5'>
                 <div className="splide-wrapper md:col-span-2 col-span-5">
                     <div className="thumbnails-splide ">
@@ -51,6 +52,12 @@ const Product = () => {
                                 pagination: false,
                                 cover: true,
                                 arrows: false,
+                                type: 'loop', // Slayder oxiriga yetganda avtomatik qaytish
+                                autoplay: true,  // Autoplay yoqish
+                                interval: 3000,  // Har bir slayd uchun interval, millisekundlarda (bu yerda 3 sekund)
+                                pauseOnHover: false, // Sichqoncha ustiga olib kelganda pauza qilishni o'chirish
+                                pauseOnFocus: false, // Fokuslanganda pauza qilishni o'chirish
+                                resetProgress: false,
                                 dragMinThreshold: {
                                     mouse: 4,
                                     touch: 10,
@@ -73,6 +80,9 @@ const Product = () => {
                             <SplideSlide>
                                 <img src={thumbnailImage} alt="Kichik rasm 1" />
                             </SplideSlide>
+                            <SplideSlide>
+                                <img src={thumbnailImage} alt="Kichik rasm 1" />
+                            </SplideSlide>
                             {/* Boshqa kichik rasmlar qo'shilishi mumkin */}
                         </Splide>
                     </div>
@@ -86,11 +96,19 @@ const Product = () => {
                                 pagination: false,
                                 arrows: true,
                                 cover: true,
-                                autoplay: true,
-                                height: "600px"
+                                height: "600px",
+                                type: 'loop', // Slayder oxiriga yetganda avtomatik qaytish
+                                autoplay: true,  // Autoplay yoqish
+                                interval: 3000,  // Har bir slayd uchun interval, millisekundlarda (bu yerda 3 sekund)
+                                pauseOnHover: false, // Sichqoncha ustiga olib kelganda pauza qilishni o'chirish
+                                pauseOnFocus: false, // Fokuslanganda pauza qilishni o'chirish
+                                resetProgress: false,
                             }}
                         >
                             {/* Asosiy rasmlar */}
+                            <SplideSlide>
+                                <img src={mainImage} alt="Asosiy rasm 1" />
+                            </SplideSlide>
                             <SplideSlide>
                                 <img src={mainImage} alt="Asosiy rasm 1" />
                             </SplideSlide>
@@ -143,7 +161,7 @@ const Product = () => {
                                     </div>
                                 </div>
 
-                                <hr  />
+                                <hr />
 
                                 <div className='grid grid-cols-10 w-full gap-2'>
                                     <img src={mainImage} alt="" className='rounded border hover:border-gray-500 transition-all' />
@@ -196,14 +214,25 @@ const Product = () => {
 
                                 <div>
                                     <p>Кратко о товаре:</p>
-                                    <div className='flex'>
-                                        <p></p>
+                                    <div className='flex items-center ml-4'>
+                                        <i class="ri-circle-fill dot mr-3"></i>
+                                        <p>text</p>
                                     </div>
+                                    <div className='flex items-center ml-4'>
+                                        <i class="ri-circle-fill dot mr-3"></i>
+                                        <p>text</p>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* product full description  */}
+            <div className='w-full'>
+                            
             </div>
         </main>
     );
