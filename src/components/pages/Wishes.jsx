@@ -21,6 +21,13 @@ function Wishes() {
             }).catch((err) => {
                 console.error(err)
             })
+
+            axios.get("http://localhost:3000/product" )
+            .then((res) => {
+                console.log(res.data)
+            }).catch((err) => {
+                console.error(err)
+            })
     }
 
 
