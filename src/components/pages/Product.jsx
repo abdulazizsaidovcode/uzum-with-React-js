@@ -7,6 +7,7 @@ import hearticon from '../../assets/icons/heart.png';
 // Rasmlarni import qilish kerak:
 import mainImage from "../../assets/img/Product/croduct1.jpeg"; // Asosiy rasm
 import thumbnailImage from "../../assets/img/Product/product 1.jpeg"; // Kichik rasm
+import Navigation from '../tools/navegation pages';
 
 const Product = () => {
     const mainSliderRef = useRef();
@@ -35,6 +36,11 @@ const Product = () => {
 
     return (
         <main className='container'>
+            {/* navegation */}
+            <div className='py-5'>
+                <Navigation />
+            </div>
+            
             {/* product description top part */}
             <div className='grid grid-cols-5'>
                 <div className="splide-wrapper md:col-span-2 col-span-5">
@@ -222,7 +228,7 @@ const Product = () => {
                                         <i class="ri-circle-fill dot mr-3"></i>
                                         <p>text</p>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -232,7 +238,7 @@ const Product = () => {
 
             {/* product full description  */}
             <div className='w-full'>
-                            
+
             </div>
         </main>
     );

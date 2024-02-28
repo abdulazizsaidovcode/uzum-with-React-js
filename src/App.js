@@ -6,6 +6,7 @@ import Header from "./components/header";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Product from "./components/pages/Product";
+import Category from "./components/pages/Categort";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/wishes" element={<Wishes />} />
         <Route path="cart" element={<Cart />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/category" element={<Category />} />
       </Routes>
       <Footer />
     </>
