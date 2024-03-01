@@ -1,6 +1,6 @@
 import ProductCard from "../tools/cards"
 import Empty from "../tools/empty"
-import EmptyImg from "../../assets/empty/not found.png"
+import EmptyImg from "../../assets/img/empty/emptywishes.png"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Api } from "../../api/api"
