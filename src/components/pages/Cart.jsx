@@ -15,11 +15,23 @@ function Cart() {
     function getGroducts() {
         axios.get(Api + "product")
             .then((res) => {
+                getBasket(res.data.filter((item) => item.cart))
                 getGroduct(res.data.splice(0, 5))
-                getBasket(res.data.splice(0, 5))
             }).catch((err) => {
                 console.error(err)
             })
+    }
+    function deletetocart(id,cart){
+        const data = {
+            cart:!cart
+        }
+        axios.patch(`${Api}product/${id}`,data)
+        .then((res) => {
+            console.log(res.data);
+            getGroducts()
+        }).catch((err) => {
+            console.error(err)
+        })
     }
     return (
         <section className="container ">
@@ -64,10 +76,12 @@ function Cart() {
                                             <button className="text-gray-400 text-3xl">+</button>
                                         </div>
                                         <div className="w-max flex flex-col items-end">
-                                            <div className="flex text-gray-500 text-md">
+                                            <button onClick={()=>{
+                                                deletetocart(item.id , item.cart)
+                                            }} className="flex text-gray-500 text-md">
                                                 <i class="ri-delete-bin-6-line"></i>
                                                 <p className="ml-2">Удалить</p>
-                                            </div>
+                                            </button>
                                             <p className="text-2xl text-end">{item.price} сум</p>
                                             <del className="text-gray-400">{item.oldprice} сум</del>
                                         </div>
@@ -129,7 +143,7 @@ function Cart() {
                 <h1 className="text-2xl mb-5">С этими товарами покупают</h1>
                 <div className="w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 ">
                     {products && products.map((item) => (
-                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} discount={item.discount} sale={item.sale} />
+                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} discount={item.discount} sale={item.sale} imgWishes={item.wishes}/>
                     ))}
                 </div>
             </div>
@@ -138,7 +152,7 @@ function Cart() {
                 <h1 className="text-2xl mb-5">Просмотренные товары</h1>
                 <div className="w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 ">
                     {products && products.map((item) => (
-                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} />
+                        <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice } imgWishes={item.wishes} />
                     ))}
                 </div>
             </div>

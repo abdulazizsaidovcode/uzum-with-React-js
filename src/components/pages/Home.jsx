@@ -15,13 +15,15 @@ import axios from 'axios';
 import Loadingslide from '../tools/loadaing/slide';
 import Loadingcards from '../tools/loadaing/card';
 import TextLoading from '../tools/loadaing/text';
-
+// img
+import img1 from '../../assets/img/Product/croduct1.jpeg';
 
 function Home() {
 
     const [products, setProducts] = useState(null)
     const [countproduct, setcountproduct] = useState(10)
     const [morebutton, sermoreinfo] = useState("Показать ещё 20")
+    const [cart, getcart] = useState(null)
 
     useEffect(() => {
 
@@ -36,8 +38,35 @@ function Home() {
                 console.error(err)
             })
     }
-    function showMoreProduct() {
+    async function editWishes(id, wishes) {
 
+        const data = {
+            wishes: !wishes
+        };
+
+        try {
+            const response = await axios.patch(`${Api}product/${id}`, data);
+            console.log(response.data);
+            getProduct()
+            
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async function addCart(id, cart) {
+
+        const data = {
+            cart: !cart
+        };
+
+        try {
+            const response = await axios.patch(`${Api}product/${id}`, data);
+            console.log(response.data);
+            getProduct()
+            
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
@@ -67,16 +96,35 @@ function Home() {
                     </Splide>
 
                 </div>
-                <div className='container'>
+                <div className='container py-10'>
+                    <h1 className='py-3 text-3xl font-bold'>
+                        Рекомендуем
+                    </h1>
                     <div className='product w-full grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 '>
                         {products && products.map((item) => (
-                            <ProductCard img={item.img} describtion={item.describtion} comments={item.comments} rate={item.rate} monthpay={item.monthpay} price={item.price} oldprice={item.oldprice} discount={item.discount} sale={item.sale} />
+                            <ProductCard
+                                img={Api + item.url}
+                                describtion={item.describtion}
+                                comments={item.comments}
+                                rate={item.rate}
+                                monthpay={item.monthpay}
+                                price={item.price}
+                                oldprice={item.oldprice}
+                                discount={item.discount}
+                                sale={item.sale}
+                                imgWishes={item.wishes}
+                                setwishes={() => {
+                                    editWishes(item.id, item.wishes)
+                                }} 
+                                setcart={()=>{
+                                    addCart(item.id, item.cart)
+                                }}/>
                         ))}
 
                     </div >
                 </div>
                 <div className=" w-full flex justify-center py-8">
-                    <button className="bg-gray-100 py-4 md:px-80 md:w-auto w-full rounded-md" onClick={showMoreProduct}>{morebutton}</button>
+                    <button className="bg-gray-100 py-4 md:px-80 md:w-auto w-full rounded-md" >{morebutton}</button>
                 </div>
             </div> :
                 <div className='container'>

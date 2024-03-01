@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../assets/img/Uzum logo.png";
 import NavbarButton from "./tools/btns/Navbar button";
 import NavbarInput from "./tools/inputs/navinput";
 import categoryimg from "../assets/img//Cayegory/union.png"
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { Api } from "../api/api";
 
 
 const Categorys = [
@@ -65,7 +67,18 @@ const Categorys = [
 ]
 function Navbar() {
     const [category, setCategory] = useState(Categorys)
-    
+    const [wishes, setWishes] = useState([])
+    const [cart, setCart] = useState([])
+
+    useEffect(() => {
+        axios.get(Api + "product")
+            .then((res) => {
+                setWishes(res.data.filter((item) => item.wishes))
+                setCart(res.data.filter((item) => item.cart))
+            }).catch((err) => {
+                console.error("navbar wishes olishda hatolik" + err)
+            })
+    })
 
     return (
         <nav className="w-full h-max py-3 overflow-hidden">
@@ -80,19 +93,20 @@ function Navbar() {
                     <NavbarInput />
                 </div>
                 <div className="ml-6 flex items-center justify-between w-[40%]">
-                    <div className="flex items-center">
+                    <div className="flex items-center hover:bg-gray-200 py-3 px-2 rounded-lg">
                         <i class="ri-user-line text-xl mr-2"></i>
                         <p>User name</p>
                     </div>
-                    <Link to='/wishes' className="flex">
+                    <Link to='/wishes' className="flex items-center hover:bg-gray-200 py-3 px-2 rounded-lg">
                         <i class="ri-heart-line mr-2"></i>
-                        <p> Мои заказы </p>
+                        <p>  Избранное  </p>
+                        {wishes.length > 0 && <button className="w-6 h-6 text-white bg-purple-600 ml-2 rounded-lg">{wishes.length}</button>}
                     </Link>
-                    <Link to="/cart" className="flex">
+                    <Link to="/cart" className="flex items-center hover:bg-gray-200 py-3 px-2 rounded-lg">
                         <i class="ri-shopping-basket-line text-xl mr-2"></i>
                         <p> Корзина </p>
+                        {cart.length > 0 && <button className="w-6 h-6 text-white bg-purple-600 ml-2 rounded-lg">{cart.length}</button>}
                     </Link>
-
                 </div>
             </div>
             <div className="container categorys flex items-center gap-x-4 w-max overflow-hidden" >
