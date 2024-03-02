@@ -23,13 +23,14 @@ function Home() {
     const [products, setProducts] = useState(null)
     const [countproduct, setcountproduct] = useState(10)
     const [morebutton, sermoreinfo] = useState("Показать ещё 20")
-    const [cart, getcart] = useState(null)
 
     useEffect(() => {
 
         getProduct()
     }, [])
 
+
+    // ------  get product ------- //
     function getProduct() {
         axios.get(Api + "product")
             .then((res) => {
@@ -38,32 +39,29 @@ function Home() {
                 console.error(err)
             })
     }
-    async function editWishes(id, wishes) {
 
+
+    // ----- edit wishes ----- //
+    async function editWishes(id, wishes) {
         const data = {
             wishes: !wishes
         };
-
         try {
             const response = await axios.patch(`${Api}product/${id}`, data);
-            console.log(response.data);
             getProduct()
-            
         } catch (error) {
             console.error(error);
         }
     }
-    async function addCart(id, cart) {
 
+    // ------ add to cart ----- //
+    async function addCart(id) {
         const data = {
-            cart: !cart
+            cart: true 
         };
-
         try {
             const response = await axios.patch(`${Api}product/${id}`, data);
-            console.log(response.data);
             getProduct()
-            
         } catch (error) {
             console.error(error);
         }
@@ -117,7 +115,7 @@ function Home() {
                                     editWishes(item.id, item.wishes)
                                 }} 
                                 setcart={()=>{
-                                    addCart(item.id, item.cart)
+                                    addCart(item.id)
                                 }}/>
                         ))}
 

@@ -43,14 +43,15 @@ function Wishes() {
             console.error(error);
         }
     }
-    async function addCart(id, cart) {
+
+    async function addCart(id) {
         const data = {
-            cart: !cart
+            cart: true
         };
         try {
             const response = await axios.patch(`${Api}product/${id}`, data);
             console.log(response.data);
-            getProduct()
+            // getProduct()
         } catch (error) {
             console.error(error);
         }
@@ -60,7 +61,6 @@ function Wishes() {
 
     return (
         <section className="container">
-
             {/* products */}
             {products &&
                 <div className="mb-5">
@@ -68,7 +68,6 @@ function Wishes() {
                     <div className="w-full border"></div>
                 </div>
             }
-
             <div className={`${products.length ? "grid" : ""} w-full  lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 `}>
                 {products.length > 0 ? products.map((item,) => (
                     <ProductCard img={item.img}
@@ -105,7 +104,7 @@ function Wishes() {
                                         setwishes(item.id, item.wishes)
                                     }}
                                     setcart={() => {
-                                        addCart(item.id, item.cart)
+                                        addCart(item.id)
                                     }} />
                             ))}
                         </div>

@@ -12,6 +12,8 @@ function Cart() {
     const [basket, getBasket] = useState([])
     const [nowmonth, getMonths] = useState(null)
     const [nowday, getDays] = useState(null)
+    const [allprice, getAllPrice] = useState(0)
+    const [oldprice, getOldPrice] = useState(0)
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November, December",]
 
     useEffect(() => {
@@ -34,7 +36,6 @@ function Cart() {
         axios.get(Api + "product")
             .then((res) => {
                 getGroduct(res.data.splice(0, 5))
-                console.log(basket);
             }).catch((err) => {
                 console.error(err)
             })
@@ -45,20 +46,18 @@ function Cart() {
         axios.get(Api + "product")
             .then((res) => {
                 getBasket(res.data.filter((item) => item.cart))
-                console.log(basket);
             }).catch((err) => {
                 console.error(err)
             })
     }
 
     // --------- delete product from basket ---------
-    function deletetocart(id, cart) {
+    function deletetocart(id) {
         const data = {
-            cart: !cart
+            cart: false
         }
         axios.patch(`${Api}product/${id}`, data)
             .then((res) => {
-                console.log(res.data);
                 getProducts()
                 getBaskets()
             }).catch((err) => {
@@ -80,9 +79,9 @@ function Cart() {
     }
 
     // ---------- add to cart products -------
-    async function addCart(id, cart) {
+    async function addCart(id) {
         const data = {
-            cart: !cart
+            cart: true
         };
         try {
             const response = await axios.patch(`${Api}product/${id}`, data);
@@ -93,6 +92,29 @@ function Cart() {
         }
     }
 
+    // ------ add and delete wanted to buy from wishes ------
+
+    function buy(id, buy) {
+        const data = {
+            buy: !buy
+        }
+        axios.patch(`${Api}product/${id}`, data)
+            .then((res) => {
+                getBaskets()
+            }).catch((err) => {
+                console.error(err)
+            })
+    }
+
+    // --------- get price to buy from api -------------
+    useEffect(() => {
+        getAllPrices()
+    }, [basket])
+
+    function getAllPrices() {
+        getAllPrice(basket.map((item) => item.price).reduce((a, b) => a + b, 0))
+        getOldPrice(basket.map((item) => item.oldprice).reduce((a, b) => a + b, 0))
+    }
 
     return (
         <section className="container ">
@@ -104,7 +126,7 @@ function Cart() {
                     <div className="grid grid-cols-7 gap-2 h-max">
 
                         {/* left part in cart */}
-                        <div className="border p-5 col-span-5 rounded-lg h-max">
+                        <div className="border p-5 md:col-span-5 col-span-7 rounded-lg h-max">
                             <div className="flex justify-between">
                                 <div className="flex items-center">
                                     <input className="mr-3 w-4" type="checkbox" />
@@ -115,11 +137,16 @@ function Cart() {
                                     <DeliveryButton text={`${nowday} ${nowmonth} (Завтра)`} />
                                 </div>
                             </div>
+
                             {basket && basket.map((item, index) => (
                                 <div className="mb-2" key={index}>
                                     <div className="border w-full my-5"></div>
                                     <div className="flex items-center w-full h-28 justify-between">
-                                        <input type="checkbox" className="w-10" />
+                                        <input
+                                            type="checkbox"
+                                            className="w-10"
+                                            onClick={() => buy(item.id, item.buy)}
+                                            checked={item.buy} />
                                         <div className="w-full flex items-center justify-between">
                                             <img className="w-20 h-28 mr-3" src={item.img} alt="rasm" />
                                             <div className="w-72">
@@ -136,7 +163,7 @@ function Cart() {
                                             </div>
                                             <div className="w-max flex flex-col items-end">
                                                 <button onClick={() => {
-                                                    deletetocart(item.id, item.cart)
+                                                    deletetocart(item.id)
                                                 }} className="flex text-gray-500 text-md">
                                                     <i class="ri-delete-bin-6-line"></i>
                                                     <p className="ml-2">Удалить</p>
@@ -151,20 +178,21 @@ function Cart() {
                         </div>
 
                         {/* right part in cart */}
-                        <div className="col-span-2  h-max">
+
+                        <div className="md:col-span-2 col-span-7  h-max">
                             <div className="border p-3 rounded-lg">
                                 <p>Ваш заказ</p>
                                 <div className="flex w-full justify-between mt-2 mb-2" >
-                                    <p>Товары (0):</p>
-                                    <p> 0 сум</p>
+                                    <p>Товары ({basket.length}):</p>
+                                    <p> {oldprice} сум</p>
                                 </div>
                                 <DeliveryButton text={`${nowday} ${nowmonth} (Завтра)`} />
                                 <div className="w-full flex justify-between mt-2">
                                     <p>Итого:</p>
-                                    <p> 0 сум</p>
+                                    <p> {allprice} сум</p>
                                 </div>
                                 <div className="w-full flex justify-end">
-                                    <p className="text-green-500">Вы экономите: 0 сум</p>
+                                    <p className="text-green-600 text-xs">Вы экономите: - {oldprice - allprice} сум</p>
                                 </div>
                                 <button className="bg-gray-100 py-3 w-full text-gray-400 rounded-xl mt-2" > Перейти к оформлению</button>
                             </div>
@@ -211,7 +239,7 @@ function Cart() {
                                     setwishes(item.id, item.wishes)
                                 }}
                                 setcart={() => {
-                                    addCart(item.id, item.cart)
+                                    addCart(item.id)
                                 }} />
                         ))}
                     </div>
@@ -239,7 +267,7 @@ function Cart() {
                                 setwishes(item.id, item.wishes)
                             }}
                             setcart={() => {
-                                addCart(item.id, item.cart)
+                                addCart(item.id)
                             }} />
                     ))}
                 </div>
@@ -262,7 +290,7 @@ function Cart() {
                                 setwishes(item.id, item.wishes)
                             }}
                             setcart={() => {
-                                addCart(item.id, item.cart)
+                                addCart(item.id)
                             }} />
                     ))}
                 </div>
