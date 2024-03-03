@@ -1,8 +1,14 @@
+import { useState } from "react";
 import russianflag from "../assets/img/Header/russia-flag-icon.svg"
+import Modal from "./tools/modals/sity";
 
+// Shaharlar ro'yxati
 
 
 function Header() {
+    const [modalOpen, setModalOpen] = useState(false);
+    const cities = ["Аккуран", "Алмазар", "Андижан"]
+
     return (
         <header className=" h-9 bg-gray-100 flex items-center">
             <div className="container flex justify-between">
@@ -10,7 +16,11 @@ function Header() {
                     <div className="flex">
                         <div className="flex">
                             <i class="ri-map-pin-line text-lg mr-1"></i>
-                            <p> Город: </p>
+                            <>
+                                <p onClick={() => setModalOpen(true)} >
+                                    <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} cities={cities} />
+                                </p>
+                            </>
                         </div>
                         <span className="ml-2 ">
                             <p className=" underline">Ташкент</p>
@@ -30,7 +40,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-            
+
         </header>
     )
 }
