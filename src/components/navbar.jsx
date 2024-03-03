@@ -6,6 +6,7 @@ import categoryimg from "../assets/img//Cayegory/union.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Api } from "../api/api";
+import RegisterModal from "./tools/modals/register";
 
 
 const Categorys = [
@@ -69,6 +70,8 @@ function Navbar() {
     const [category, setCategory] = useState(Categorys)
     const [wishes, setWishes] = useState([])
     const [cart, setCart] = useState([])
+    const [regmodalOpen, setRegModalOpen] = useState(false);
+
 
     useEffect(() => {
         axios.get(Api + "product")
@@ -93,12 +96,13 @@ function Navbar() {
                     <NavbarInput />
                 </div>
                 <div className="ml-6 flex items-center justify-between w-[40%]">
-                    <div className="flex items-center hover:bg-gray-200 py-3 px-2 rounded-lg">
+                    <div className="flex items-center hover:bg-gray-200 py-3 px-1 rounded-lg">
                         <i class="ri-user-line text-xl mr-2"></i>
-                        <p>User name</p>
+                        <p onClick={() => setRegModalOpen(true)} className=" rounded transition-colors duration-300">Мои заказы</p>
+                        {regmodalOpen && <RegisterModal isOpen={regmodalOpen} onClose={() => setRegModalOpen(false)} />}
                     </div>
                     <Link to='/wishes' className="flex items-center hover:bg-gray-200 py-3 px-2 rounded-lg">
-                        <i class="ri-heart-line mr-2"></i>
+                        <i class="ri-heart-line text-xl mr-2"></i>
                         <p>  Избранное  </p>
                         {wishes.length > 0 && <button className="w-6 h-6 text-white bg-purple-600 ml-2 rounded-lg">{wishes.length}</button>}
                     </Link>

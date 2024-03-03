@@ -11,11 +11,11 @@ const Modal = ({ isOpen, onClose, cities }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full ${!isOpen && 'hidden'}`}
+      className={`fixed z-10 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full ${!isOpen && 'hidden'}`}
       onClick={onClose}
     >
       <div
-        className="relative top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-white"
+        className="relative z-10 top-20 mx-auto p-5 border w-11/12 md:w-2/3 lg:w-1/2 shadow-lg rounded-md bg-white"
         onClick={e => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
