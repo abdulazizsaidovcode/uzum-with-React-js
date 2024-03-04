@@ -23,10 +23,11 @@ function Home() {
     const [products, setProducts] = useState(null)
     const [countproduct, setcountproduct] = useState(10)
     const [morebutton, sermoreinfo] = useState("Показать ещё 20")
+    const [banners, getbanners] = useState(null)
 
     useEffect(() => {
-
         getProduct()
+        getBanner()
     }, [])
 
 
@@ -40,6 +41,17 @@ function Home() {
             })
     }
 
+    // ------ get banners ------- //
+
+    function getBanner() {
+        axios.get(Api + "banner")
+            .then((res) => {
+                console.log(res.data);
+                getbanners(res.data)
+            }).catch((err) => {
+                console.error(err)
+            })
+    }
 
     // ----- edit wishes ----- //
     async function editWishes(id, wishes) {
@@ -57,7 +69,7 @@ function Home() {
     // ------ add to cart ----- //
     async function addCart(id) {
         const data = {
-            cart: true 
+            cart: true
         };
         try {
             const response = await axios.patch(`${Api}product/${id}`, data);
@@ -66,6 +78,7 @@ function Home() {
             console.error(error);
         }
     }
+
 
     return (
         <main>
@@ -79,18 +92,11 @@ function Home() {
                         pauseOnHover: false,
                         resetProgress: false,
                     }} aria-label="My Favorite Images" aria-labelledby="autoplay-example-heading">
-                        <SplideSlide >
-                            <img className=' rounded-3xl' src="https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg" alt="Image 1" />
-                        </SplideSlide>
-                        <SplideSlide>
-                            <img className=' rounded-3xl' src="https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg" alt="Image 2" />
-                        </SplideSlide>
-                        <SplideSlide>
-                            <img className=' rounded-3xl' src="https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg" alt="Image 2" />
-                        </SplideSlide>
-                        <SplideSlide>
-                            <img className=' rounded-3xl' src="https://images.uzum.uz/cn50orp25kub33f3cphg/main_page_banner.jpg" alt="Image 2" />
-                        </SplideSlide>
+                        {banners && banners.map((banner) => ( 
+                            <SplideSlide >
+                                <img className=' rounded-3xl' src={Api + banner.url} alt="Image 1" />
+                            </SplideSlide>
+                        ))}
                     </Splide>
 
                 </div>
@@ -113,10 +119,10 @@ function Home() {
                                 imgWishes={item.wishes}
                                 setwishes={() => {
                                     editWishes(item.id, item.wishes)
-                                }} 
-                                setcart={()=>{
+                                }}
+                                setcart={() => {
                                     addCart(item.id)
-                                }}/>
+                                }} />
                         ))}
 
                     </div >
