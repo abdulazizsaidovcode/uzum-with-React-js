@@ -31,7 +31,7 @@ function Home() {
     }, [])
 
 
-    // ------  get product ------- //
+    // ------***********  get product ***********------- //
     function getProduct() {
         axios.get(Api + "product")
             .then((res) => {
@@ -41,7 +41,7 @@ function Home() {
             })
     }
 
-    // ------ get banners ------- //
+    // ------ *********** get banners ********* ------- //
 
     function getBanner() {
         axios.get(Api + "banner")
@@ -53,7 +53,7 @@ function Home() {
             })
     }
 
-    // ----- edit wishes ----- //
+    // -----*********** edit wishes ***********----- //
     async function editWishes(id, wishes) {
         const data = {
             wishes: !wishes
@@ -66,7 +66,7 @@ function Home() {
         }
     }
 
-    // ------ add to cart ----- //
+    // ------*********** add to cart ***********----- //
     async function addCart(id) {
         const data = {
             cart: true
