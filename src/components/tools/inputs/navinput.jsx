@@ -13,7 +13,6 @@ function NavbarInput() {
                 </button>
             </div>
         </div>
-
     )
 
 }
