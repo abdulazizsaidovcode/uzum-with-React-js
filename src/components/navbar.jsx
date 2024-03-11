@@ -9,69 +9,14 @@ import { Api } from "../api/api";
 import RegisterModal from "./tools/modals/register";
 
 
-const Categorys = [
-    {
-        id: 1,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 2,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 3,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 4,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 5,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 7,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 8,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 9,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 10,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 11,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-    {
-        id: 12,
-        categoryname: "Рассрочка",
-        img: categoryimg
-    },
-]
+
 function Navbar() {
-    const [category, setCategory] = useState(Categorys)
     const [wishes, setWishes] = useState([])
     const [cart, setCart] = useState([])
     const [regmodalOpen, setRegModalOpen] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [categorys, getCategory] = useState()
+    const [sortcategory, setSortCategory] = useState()
 
     // ------ ******* opent and off nav menu ******* ------ ///
     const toggleNav = () => setIsNavOpen(!isNavOpen);
@@ -92,18 +37,18 @@ function Navbar() {
         getCategorys()
     }, [])
 
-    const [categorys, getCategory] = useState()
     function getCategorys() {
         axios.get(Api + "category")
             .then((res) => {
                 getCategory(res.data)
+                setSortCategory(res.data.slice(0, 8))
             }).catch((err) => {
                 console.error("navbar wishes olishda hatolik" + err)
             })
     }
 
     return (
-        <nav className="w-full h-max py-3 overflow-hidden">
+        <nav className="w-full h-max py-3 ">
             <div className="container flex items-center ">
                 <Link to="/">
                     <img className="h-10" src={logo} alt="" />
@@ -132,28 +77,38 @@ function Navbar() {
                     </Link>
                 </div>
             </div>
+
             <div className="relative container">
                 {isNavOpen && (
-                    <div className="absolute -top-72 w-full h-screen shadow flex flex-col gap-x-5 bg-red-200">
-                        {categorys && categorys.map((item, index) => (
-                            <Link to={`/category/${item.categoryname}`} key={index}>
-                                <div className="flex items-center gap-2 justify-between w-full h-12 px-4 py-2">
-                                    <div dangerouslySetInnerHTML={{ __html: item.url }} />
-                                    <p className="ml-1">{item.categoryName}</p>
-                                </div>
-                            </Link>
-                        ))}
+                    <div className="flex w-full absolute z-30 flex-row shadow-2xl ">
+                        <div className=" w-2/6 h-max  flex flex-col gap-x-5 bg-white">
+                            {categorys && categorys.map((item, index) => (
+                                <Link to={`/category/${item.categoryname}`} key={index}>
+                                    <div className="flex items-center justify-between gap-2  w-full h-12 px-4 py-2">
+                                        <div className="flex items-center">
+                                            {item.url ? <div dangerouslySetInnerHTML={{ __html: item.url }} /> : <img src={Api + item.img} alt="" className="w-7" />}
+                                            <p className="ml-1 hover:text-purple-600">{item.categorytext}</p>
+                                        </div>
+                                        <i class="ri-arrow-right-s-line text-3xl"></i>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="md:w-5/6 bg-white p-5 relative">
+                            <button onClick={toggleNav} className=" absolute top-5 right-5 rounded-full hover:bg-gray-200 flex justify-center items-center w-8 h-8"><i class="ri-close-line text-3xl"></i></button>
+                        </div>
                     </div>
                 )}
             </div>
-            <div className="container categorys flex items-center gap-x-4 w-max overflow-hidden" >
-                {category && category.map((item, index) => (
-                    <div className="flex w-36 h-12 items-center py-2" key={index}>
-                        <img src={item.img} alt="" className="w-6 h-6" />
-                        <p className="ml-1">{item.categoryname}</p>
+            <div className="container flex items-center justify-between gap-x-4 overflow-hidden" >
+                {sortcategory && sortcategory.map((item) => (
+                    <div className="flex h-12 items-center gap-2" >
+                        {item.img && <img src={Api + item.img} alt="" className="w-6 h-6" />}
+                        <p>{item.categorytext}</p>
                     </div>
-                ))}
 
+                ))}
+                <button onClick={toggleNav} className="flex items-center ml-2">Ещё <i class="ri-arrow-down-s-line"></i></button>
             </div>
         </nav>
     )

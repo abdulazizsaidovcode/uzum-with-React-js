@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 import Product from "./components/pages/Product";
 import Category from "./components/pages/Categort";
 import Question from "./components/pages/questions";
+import DeliveryPoints from "./components/pages/deliverypoint";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/category" element={<Category />} />
         <Route path="/questions" element={<Question />} />
+        <Route path="/deliveryPoints" element={<DeliveryPoints />} /> 
       </Routes>
       <Footer />
     </>
