@@ -14,7 +14,7 @@ import DeliveryPoints from "./components/pages/deliverypoint";
 function App() {
   return (
     <>
-      <Header />
+      <Header /> 
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
