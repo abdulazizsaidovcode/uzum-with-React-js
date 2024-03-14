@@ -51,7 +51,7 @@ function Navbar() {
         <nav className="w-full h-max py-3 ">
             <div className="container flex items-center ">
                 <Link to="/">
-                    <img className="h-10" src={logo} alt="" />
+                    <img className="h-10" src={logo} alt="logo" />
                 </Link>
                 <div className="flex items-center ml-6">
                     <NavbarButton toggleNav={toggleNav} isNavOpen={isNavOpen} />
