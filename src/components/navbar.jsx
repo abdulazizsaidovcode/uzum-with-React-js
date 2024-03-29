@@ -57,7 +57,7 @@ function Navbar() {
                     <NavbarButton toggleNav={toggleNav} isNavOpen={isNavOpen} />
                 </div>
                 <div className="flex items-center ml-5 w-[40%]">
-                    <NavbarInput />
+                    <NavbarInput /> 
                 </div>
                 <div className="ml-6 flex items-center justify-between w-[40%]">
                     <div className="flex items-center hover:bg-gray-200 py-3 px-1 rounded-lg">
