@@ -55,7 +55,7 @@ function Navbar() {
                 </Link>
                 <div className="flex items-center ml-6">
                     <NavbarButton toggleNav={toggleNav} isNavOpen={isNavOpen} />
-                </div>
+                </div> 
                 <div className="flex items-center ml-5 w-[40%]">
                     <NavbarInput /> 
                 </div>
