@@ -29,7 +29,7 @@ function Navbar() {
                 setCart(res.data.filter((item) => item.cart))
             }).catch((err) => {
                 console.error("navbar wishes olishda hatolik" + err)
-            })
+            }) 
     })
 
 
