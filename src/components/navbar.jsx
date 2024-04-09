@@ -5,7 +5,7 @@ import NavbarInput from "./tools/inputs/navinput";
 import categoryimg from "../assets/img//Cayegory/union.png"
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Api } from "../api/api";
+import { Api } from "../api/api"; 
 import RegisterModal from "./tools/modals/register";
 
 
