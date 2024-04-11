@@ -16,7 +16,7 @@ function Navbar() {
     const [regmodalOpen, setRegModalOpen] = useState(false);
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [categorys, getCategory] = useState()
-    const [sortcategory, setSortCategory] = useState()
+    const [sortcategory, setSortCategory] = useState() 
 
     // ------ ******* opent and off nav menu ******* ------ ///
     const toggleNav = () => setIsNavOpen(!isNavOpen);
