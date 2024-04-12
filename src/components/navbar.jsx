@@ -14,7 +14,7 @@ function Navbar() {
     const [wishes, setWishes] = useState([])
     const [cart, setCart] = useState([])
     const [regmodalOpen, setRegModalOpen] = useState(false);
-    const [isNavOpen, setIsNavOpen] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(false); 
     const [categorys, getCategory] = useState()
     const [sortcategory, setSortCategory] = useState() 
 
