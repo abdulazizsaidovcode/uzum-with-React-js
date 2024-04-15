@@ -44,7 +44,7 @@ function Navbar() {
                 setSortCategory(res.data.slice(0, 8))
             }).catch((err) => {
                 console.error("navbar wishes olishda hatolik" + err)
-            })
+            }) 
     }
 
     return (
